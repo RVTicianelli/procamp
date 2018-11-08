@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="11" author="Rafael">
+
+		<createTable tableName="CAMPANHA"
+			remarks="Tabela que contem as campanhas">	
+	
+			<column name="ID" type="int">
+				<constraints primaryKey="true" unique="true"/>
+			</column>
+
+			<column name="NOME" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+			<column name="DATA_INICIO" type="date">
+			</column>
+			
+			<column name="DATA_FIM" type="date">
+			</column>
+					
+			<column name="DATA_CADASTRO" type="date">
+			</column>
+		
+
+			<column name="DESCRICAO" type="varchar(500)">
+			</column>
+			
+			<column name="RESPONSAVEL_ID" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="TIPOCAMPANHA_ID" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet id="11.1" author="Rafael">
+		<addAutoIncrement catalogName="procamp"
+			columnDataType="int" columnName="ID" incrementBy="1"
+			schemaName="public" startWith="1" tableName="CAMPANHA" />
+	</changeSet>
+
+    <changeSet id="11.2" author="Rafael">
+		<addForeignKeyConstraint baseTableName="CAMPANHA" baseColumnNames="RESPONSAVEL_ID"
+  				constraintName="CAMPANHA_RESPONSAVEL_FK"
+  				referencedTableName="RESPONSAVEL" referencedColumnNames="ID"/>
+	</changeSet>
+
+    <changeSet id="11.3" author="Rafael">
+		<addForeignKeyConstraint baseTableName="CAMPANHA" baseColumnNames="TIPOCAMPANHA_ID"
+  				constraintName="CAMPANHA_TIPOCAMPANHA_FK"
+  				referencedTableName="TIPO_CAMPANHA" referencedColumnNames="ID"/>
+	</changeSet>
+</databaseChangeLog>

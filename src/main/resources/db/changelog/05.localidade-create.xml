@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="05" author="Rafael">
+
+		<createTable tableName="LOCALIDADE"
+			remarks="Tabela que contem estados e Siglas">
+
+			<column name="ID" type="int">
+				<constraints primaryKey="true" unique="true"/>
+			</column>
+
+			<column name="NOME" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+			<column name="PONTO_REFERENCIA" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="NUMERO" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="COMPLEMENTO" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="TIPOLOCALIDADE_ID" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="CEP_ID" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet id="05.1" author="Rafael">
+		<addAutoIncrement catalogName="procamp"
+			columnDataType="int" columnName="ID" incrementBy="1"
+			schemaName="public" startWith="1" tableName="LOCALIDADE" />
+	</changeSet>
+
+    <changeSet id="05.2" author="Rafael">
+		<addForeignKeyConstraint baseTableName="LOCALIDADE" baseColumnNames="TIPOLOCALIDADE_ID"
+  				constraintName="LOCALIDADE_TIPOLOCALIDADE_FK"
+  				referencedTableName="TIPO_LOCALIDADE" referencedColumnNames="ID"/>
+	</changeSet>
+
+    <changeSet id="05.3" author="Rafael">
+		<addForeignKeyConstraint baseTableName="LOCALIDADE" baseColumnNames="CEP_ID"
+  				constraintName="LOCALIDADE_CEP_FK"
+  				referencedTableName="CEP" referencedColumnNames="ID"/>
+	</changeSet>
+
+</databaseChangeLog>

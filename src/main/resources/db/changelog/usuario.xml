@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="13" author="Rafael">
+
+		<createTable tableName="USUARIO"
+			remarks="Tabela que contem o cadastro dos usuarios">
+
+			<column name="ID" type="int">
+				<constraints primaryKey="true" unique="true"/>
+			</column>
+
+			<column name="NOME" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+			<column name="DATA_NASCIMENTO" type="varchar(40)">
+			</column>
+			
+			<column name="CPF" type="varchar(40)">
+			</column>
+
+			<column name="SEXO" type="varchar(1)">
+			</column>
+			
+			<column name="EMAIL" type="varchar(40)">
+			</column>
+			
+			<column name="SENHA" type="varchar(255)">
+			</column>
+			
+			<column name="ULTIMO_LOGIN" type="date">
+			</column>
+			
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet id="13.1" author="Rafael">
+		<addAutoIncrement catalogName="procamp"
+			columnDataType="int" columnName="ID" incrementBy="1"
+			schemaName="public" startWith="1" tableName="USUARIO" />
+	</changeSet>
+
+</databaseChangeLog>

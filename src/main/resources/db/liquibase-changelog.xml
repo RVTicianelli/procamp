@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+         
+         <include file="changelog/01.estado-create.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/02.cidade-create.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/03.cep-create.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/04.tipolocalidade-create.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/05.localidade-create.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/tipoCampanha.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/tipoContato.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/tipoResponsavel.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/responsavel.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/campanha.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/campanhaLocalidade.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/contato.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/usuario.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/preferencia.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/campanhaPreferencia.xml" relativeToChangelogFile="true"/>
+         <include file="changelog/perfis.xml" relativeToChangelogFile="true"/>
+         
+         <include file="changelog/usuarioTipoCampanha.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

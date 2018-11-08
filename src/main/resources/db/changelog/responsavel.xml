@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="09" author="Rafael">
+
+		<createTable tableName="RESPONSAVEL"
+			remarks="Tabela que contem os responsaveis pelas campanhas">
+
+			<column name="ID" type="int">
+				<constraints primaryKey="true" unique="true"/>
+			</column>
+
+			<column name="NOME" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+			<column name="CPF" type="varchar(40)">
+			</column>
+			
+			<column name="CNPJ" type="varchar(40)">
+			</column>
+
+			<column name="DATA_NASCIMENTO" type="date">
+			</column>
+			
+			<column name="RAZAO_SOCIAL" type="varchar(40)">
+			</column>
+			
+			<column name="SEXO" type="varchar(1)">
+			</column>
+			
+			<column name="NUMERO" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="COMPLEMENTO" type="varchar(40)">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="TIPORESPONSAVEL_ID" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+			
+			<column name="CEP_ID" type="int">
+				<constraints unique="false" nullable="false" />
+			</column>
+
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet id="09.1" author="Rafael">
+		<addAutoIncrement catalogName="procamp"
+			columnDataType="int" columnName="ID" incrementBy="1"
+			schemaName="public" startWith="1" tableName="RESPONSAVEL" />
+	</changeSet>
+
+    <changeSet id="09.2" author="Rafael">
+		<addForeignKeyConstraint baseTableName="RESPONSAVEL" baseColumnNames="TIPORESPONSAVEL_ID"
+  				constraintName="RESPONSAVEL_TIPORESPONSAVEL_FK"
+  				referencedTableName="TIPO_RESPONSAVEL" referencedColumnNames="ID"/>
+	</changeSet>
+
+    <changeSet id="09.3" author="Rafael">
+		<addForeignKeyConstraint baseTableName="RESPONSAVEL" baseColumnNames="CEP_ID"
+  				constraintName="RESPONSAVEL_CEP_FK"
+  				referencedTableName="CEP" referencedColumnNames="ID"/>
+	</changeSet>
+
+</databaseChangeLog>
